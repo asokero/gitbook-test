@@ -1,55 +1,23 @@
-## Primuksen ja Wilman autentikointi Puavoon
+## Testing
 
-Primus ja Wilma saadaan käyttämään käyttäjien autentikointiin Puavon LDAP-kantaa luomalla primusta varten tunnus Puavon ulkoisiin palveluihin ja konfiguroimalla Primus-palvelin käyttämään ulkoista LDAP-kantaa.
-
-Autentikoinnin toiminnan testaamiseen on saatavilla Starsoftilta ohjelma LdapTest.exe, josta tarvitaan vähintään versio 1.5.
-
-```
-Server	extldap1.opinsys.fi
-Port	389
-CACert	opinsyscert.pem (Sertifikaatin sisältö täältä)
-DN	uid=wilma,ou=System Accounts,dc=edu,dc=kunta,dc=fi
-Passwd	salasana
-LdapV3	x
-TLS	x
-Base DN	ou=People,dc=edu,dc=kunta,dc=fi
-Search	(uid=wilma.testi)
-Scope	2
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis blandit accumsan. Cras suscipit sem non fringilla luctus. Donec dapibus purus facilisis sapien lobortis, id condimentum est dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque neque nisi, cursus in ullamcorper egestas, gravida ut nisi. In pharetra erat malesuada nulla pretium, nec lacinia lacus hendrerit. Vivamus ac nulla ante. Vestibulum vel malesuada tortor. Etiam at arcu non ipsum consectetur ullamcorper.
 ```
 
-Primuksen asetukset tehdään Primus-palvelimelle tiedostoon prserver.ini, johon lisätään seuraavat tiedot. Puavon LDAP-kannassa opettajien ja oppilaiden käyttäjätunnukset ovat samassa haarassa. opinsyscert.pem -tiedosto luodaan sivun https://opinsys.zendesk.com/entries/20160652-web-palveluiden-ldap-autentikointi-puavoon mukaan ja CertCAFile -asetus laitetaan osoittamaan luotuun tiedostoon. Configuraation Host1 ja Host2 määreet vaikuttavat wilman autentikointiin. Host1 on opiskelijoiden haara ja Host2 opettajien.
-
+Donec a pulvinar dui. Phasellus eleifend auctor eros sed efficitur. Pellentesque vitae augue ex. Duis euismod, mauris ac dictum accumsan, ligula risus varius eros, ut lobortis elit justo ac mi. Etiam faucibus vestibulum tincidunt. Pellentesque fringilla eros in pretium tempor. Fusce varius, orci id tincidunt commodo, nisi risus elementum metus, vitae ullamcorper ligula diam sollicitudin orci. Integer quis accumsan eros.
 ```
-[Ldap]
-Library=synapse
-Host=extldap1.opinsys.fi
-Port=389
-MainDn=uid=primus,ou=System Accounts,dc=edu,dc=kunta,dc=fi
-MainPasswd=salasana
-Search=(uid=$USERNAME)
-SearchBase=ou=People,dc=edu,dc=kunta,dc=fi
-SearchScope=2
-Tls=1
-CertCAFile=opinsyscert.pem
 
-Host1=extldap1.opinsys.fi
-Port1=389
-MainDn1=uid=primus,ou=System Accounts,dc=edu,dc=kunta,dc=fi
-MainPasswd1=salasana
-Search1=(uid=$USERNAME)
-SearchBase1=ou=People,dc=edu,dc=kunta,dc=fi
-SearchScope1=2
-Tls1=1
-CertCAFile1=opinsyscert.pem
+Katso video [youtubesta](https://youtu.be/9-po82v6v6E)
 
-Host2=extldap1.opinsys.fi
-Port2=389
-MainDn2=uid=primus,ou=System Accounts,dc=edu,dc=kunta,dc=fi
-MainPasswd2=salasana
-Search2=(uid=$USERNAME)
-SearchBase2=ou=People,dc=edu,dc=kunta,dc=fi
-SearchScope2=2
-Tls2=1
-CertCAFile2=opinsyscert.pem
-```
-Huom! Jos ldaptest.exe ei toimi oikein, vaikka sertifikaattitiedosto on paikallaan, kannattaa varmistaa, että Windows-koneella on asennettuna DLL:t ssleay32.dll ja libeay32.dll. Mikäli ne puuttuvat, helpoiten ne saa käyttöön kopioimalla ne samaan hakemistoon, jossa primuksen .exe -tiedostot ovat.
+Curabitur eleifend, arcu non dapibus tincidunt, lorem tortor consequat nulla, ut porta turpis enim ut tellus. Fusce tellus lectus, accumsan eget dictum vel, mollis vitae nunc. Aliquam eu malesuada ante, vel fermentum eros. Maecenas consequat rhoncus interdum. In feugiat justo quis sem suscipit dignissim. Donec sagittis justo venenatis dui maximus blandit. In porttitor aliquet quam eu lobortis. Sed ac condimentum magna, et fermentum lectus. Ut condimentum ex et metus tempus, ac gravida dolor dapibus. Mauris quis quam lacus. Nullam sagittis tempor risus, in mollis neque hendrerit vitae. Nam tristique condimentum varius. Nunc dolor neque, tincidunt ut purus non, facilisis molestie felis. Pellentesque posuere convallis nisi sit amet egestas.
+
+Aliquam maximus placerat consectetur. Nam pulvinar sem libero, ac aliquam nisl egestas venenatis. Phasellus ornare porta elementum. Duis sagittis enim arcu, in dignissim urna gravida in. Aliquam sagittis tellus vitae gravida interdum. Cras non magna at nulla tristique consequat. Sed leo erat, iaculis a aliquam vitae, auctor ac orci. Sed a elit ac augue congue malesuada. Aliquam sapien tortor, elementum sed laoreet malesuada, tristique vitae sapien. Suspendisse congue commodo mauris et tempus. Aliquam non ante ac enim laoreet malesuada eu sed nunc.
+
+Vivamus varius, est ut consequat tincidunt, sem eros vulputate purus, vitae sodales massa mi at lectus. Curabitur sed urna ut nunc finibus eleifend. Donec metus dui, laoreet in justo nec, pharetra volutpat magna. Aenean molestie sollicitudin accumsan. Nunc quam arcu, lobortis a lobortis sit amet, venenatis id odio. Praesent aliquam iaculis massa, vel mollis dolor imperdiet et. Nullam condimentum fermentum posuere.
+
+## Testing 2
+
+Aliquam maximus placerat consectetur. Nam pulvinar sem libero, ac aliquam nisl egestas venenatis. Phasellus ornare porta elementum. Duis sagittis enim arcu, in dignissim urna gravida in. Aliquam sagittis tellus vitae gravida interdum. Cras non magna at nulla tristique consequat. Sed leo erat, iaculis a aliquam vitae, auctor ac orci. Sed a elit ac augue congue malesuada. Aliquam sapien tortor, elementum sed laoreet malesuada, tristique vitae sapien. Suspendisse congue commodo mauris et tempus. Aliquam non ante ac enim laoreet malesuada eu sed nunc.
+
+### Testing 3
+
+Aliquam maximus placerat consectetur. Nam pulvinar sem libero, ac aliquam nisl egestas venenatis. Phasellus ornare porta elementum. Duis sagittis enim arcu, in dignissim urna gravida in. Aliquam sagittis tellus vitae gravida interdum. Cras non magna at nulla tristique consequat. Sed leo erat, iaculis a aliquam vitae, auctor ac orci. Sed a elit ac augue congue malesuada. Aliquam sapien tortor, elementum sed laoreet malesuada, tristique vitae sapien. Suspendisse congue commodo mauris et tempus. Aliquam non ante ac enim laoreet malesuada eu sed nunc.
